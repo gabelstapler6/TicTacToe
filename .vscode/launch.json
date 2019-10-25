@@ -2,9 +2,16 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - TicTacToe",
+            "request": "launch",
+            "mainClass": "TicTacToe.TicTacToe",
+            "projectName": "TicTacToe-Java_795a0564"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"
-        },
+        }
     ]
 }
