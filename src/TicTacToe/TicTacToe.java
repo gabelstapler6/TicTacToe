@@ -14,34 +14,34 @@ public class TicTacToe {
     public TicTacToe() {
         createWindow();
         createButtons();
-        play();
+       // play();
     }
 
     public void createWindow(){
         frame = new JFrame("TicTacToe");
-        frame.setSize(540, 540);
-        frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
+
         panel = new JPanel();
         panel.setBackground(Color.WHITE);
-        
-        frame.add(panel);
-    }
+        panel.setLayout(new GridLayout(3,3));
 
-    public void createButtons() {
-        int x = 100, y = 100;
         for(int z=0; z<3;z++){
             for(int i = 0; i < 3; i++){
                 buttonArr[i][z] = new JToggleButton();
-                buttonArr[i][z].setBounds(x, y, buttonsize, buttonsize);
+                buttonArr[i][z].setSize(buttonsize, buttonsize);
                 buttonArr[i][z].setBackground(Color.GRAY);
                 panel.add(buttonArr[i][z]);
-                x += buttonsize + 10;
+            
             }
-            y += buttonsize + 10;
-            x = 100;
         }
+        frame.add(panel,"center");
+        frame.setSize(buttonsize*3, buttonsize*3);
+        frame.setVisible(true);
+    }
+
+    public void createButtons() {
+       
     }
 
     public void play() {
