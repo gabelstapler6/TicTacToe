@@ -3,8 +3,15 @@ package TicTacToe;
 
 public class TicTacToe {
 
+    public void playTicTacToe(window w){
+        
+        w.playTicTacToe();
+        
+    }
+
     public static void main(String[] args) {
-        new window();
+        window w = new window();
+        
     }
 }
 

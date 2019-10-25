@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 class window extends JFrame implements ActionListener {
-    private static int buttonsize = 100;
+    private static int buttonsize = 150;
     private GameField[][] buttons = new GameField[3][3];
 
     public window(){
@@ -13,7 +13,7 @@ class window extends JFrame implements ActionListener {
         setLayout(new GridLayout(3,3));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
-        createGameField();
+        playTicTacToe();
     }
 
     public void createGameField() {
@@ -25,6 +25,11 @@ class window extends JFrame implements ActionListener {
         }
         setSize(buttonsize*3, buttonsize*3);
         setVisible(true); 
+    }
+
+    public void playTicTacToe() {
+        createGameField();
+        
     }
 
     @Override
