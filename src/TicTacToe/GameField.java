@@ -9,8 +9,6 @@ public class GameField extends JButton implements ActionListener{
 
 	public int buttonsize = 150;
     private static int clickCounter = 0; 
-    private static int buttonCount = 0;
-    private int buttonNumber;
     private static Player playerOne = new Player("andi");
     private static Player playerTwo = new Player("mascha");
     
@@ -20,8 +18,7 @@ public class GameField extends JButton implements ActionListener{
         w.getContentPane().add(this);
         addActionListener(this);
         setFont(new Font("Arial", Font.PLAIN, 70));
-        buttonNumber = buttonCount;
-        buttonCount++;
+    
     }
    
 
