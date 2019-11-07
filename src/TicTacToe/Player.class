@@ -48,7 +48,7 @@ public class Player {
                         if(this.playerClicks[i+y] == 1)
                             win++;
                     }
-                    
+                    case 6:
                     
                 }
             }
