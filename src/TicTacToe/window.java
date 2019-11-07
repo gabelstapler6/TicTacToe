@@ -10,19 +10,18 @@ class window extends JFrame implements ActionListener {
      */
     private static final long serialVersionUID = 4567822880145248471L;
     private GameField[][] buttons = new GameField[3][3];
-    private Player PlayerOne = new Player("andi");
-    private Player PlayerTwo = new Player("mascha");
+    private Player PlayerOne;
+    private Player PlayerTwo;
 
     public window(){
+        setTitle("TicTacToe");
+        setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public void createGameField(int buttonsize) {
-
-        setTitle("TicTacToe");
+        
         setLayout(new GridLayout(3,3));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(false);
-
         int n = 0;
         for(int z=0; z < 3; z++){
             for(int i = 0; i < 3; i++){
@@ -32,7 +31,8 @@ class window extends JFrame implements ActionListener {
             }
         }
         setSize(buttonsize*3, buttonsize*3);
-        setVisible(true); 
+        setVisible(true);
+
     }
 
     public void endGame(){
@@ -43,14 +43,48 @@ class window extends JFrame implements ActionListener {
         }
     }
 
-    public void playTicTacToe(int buttonSize) {
-        createGameField(buttonSize);
+    public void playTicTacToe() {
+        this.setSize(400,200);
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        JLabel player1 = new JLabel("Player1 Name");
+        JLabel player2 = new JLabel("Player2 Name");
+        JLabel size = new JLabel("Size of Game Field");
+        JTextField fieldSize = new JTextField();
+        JTextField name1 = new JTextField();
+        JTextField name2 = new JTextField();
+        JButton confirm = new JButton("confirm");
+        panel.add(size);
+        panel.add(fieldSize);
+        panel.add(player1);
+        panel.add(name1);
+        panel.add(player2);
+        panel.add(name2);
+        panel.add(confirm);
+        this.add(panel);
+        this.setVisible(true);
+        confirm.addActionListener(new ActionListener(){
+            String nameOne, nameTwo;
+            int s;
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                s = Integer.parseInt(fieldSize.getText());
+                PlayerOne = new Player(name1.getText());
+                PlayerTwo = new Player(name2.getText());
+                if(s > 50){
+                    remove(panel);
+                    createGameField(s);
+                }else{
+                    JLabel warning = new JLabel("Size too low, enter another");
+                    panel.add(warning);
+                }
+            }
+        });
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        
+      
     }
 
 }
