@@ -3,16 +3,16 @@ package TicTacToe;
 
 import java.awt.event.*;
 
-public class Controller{
+public class TTTController{
     private TTTView view;
-    private Model model;
+    private TTTModel model;
 
     private int[] checkForWin1;
     private int[] checkForWin2;
     private int clickCounter;
     
 
-    public Controller(TTTView view, Model model){
+    public TTTController(TTTView view, TTTModel model){
         this.model = model;
         this.view = view;
         checkForWin1 = new int[9];
@@ -34,7 +34,7 @@ public class Controller{
                 view.setButtonText(((TTTButton)e.getSource()).getButtonNbr(), "O");
                 checkForWin2[((TTTButton)e.getSource()).getButtonNbr()] = 1;
             }
-            
+
             if(clickCounter > 4){
                 if(model.checkWin(checkForWin1)){
                     view.endGame();

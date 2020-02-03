@@ -3,7 +3,7 @@ package TicTacToe;
 /**
  * Model
  */
-public class Model {
+public class TTTModel {
 
     
     public boolean checkWin(int[] checkForWin){

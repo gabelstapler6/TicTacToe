@@ -7,8 +7,8 @@ public class TicTacToe {
 
     public static void main(String[] args) {
         TTTView game = new TTTView();
-        Model model = new Model();
-        Controller controller =  new Controller(game, model);
+        TTTModel model = new TTTModel();
+        TTTController controller =  new TTTController(game, model);
     }
 }
 
